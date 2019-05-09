@@ -7,6 +7,7 @@ from .fit import fit
 from .fit2d import fit2d
 from .sine import fit_sin
 from .sine import lomb_spectrum
+from .gauss import fit_gauss
 
 
 

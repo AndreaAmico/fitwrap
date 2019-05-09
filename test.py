@@ -15,7 +15,6 @@ random_noise = random_noise/2**23
 xx = np.linspace(1,5,SIZE)
 yy = 5*xx**2 + random_noise/10
 
-
 def sq(x, a=4):
 	return a * x**2
 
@@ -67,7 +66,7 @@ if all([fit == expected for fit, expected in zip(out.err,
 else:
 	print('Test fit 2D error FAILED')
 
-### TEST SINE.  #######################################################################################
+### TEST SINE  #######################################################################################
 
 def my_signal(t, off, amp, freq, phase):
     return  off + amp * np.sin(2*np.pi*freq*t + phase)
@@ -98,8 +97,31 @@ if all([fit == expected for fit, expected in zip(out.err,
 else:
 	print('Test fit sin error FAILED')
 
+### TEST GAUSS  #######################################################################################
+
+def my_signal(x, off, amp, x0, sx):
+    return  off + amp * np.exp(-(x-x0)**2 / (2*sx**2))
+
+SIZE = 100
+random_noise = np.ones(SIZE) * 2**22
+for i in range(SIZE-1):
+    random_noise[i+1] = (random_noise[i]*1664525 + 1013904223) % 2**23 # from numerical recepies
+random_noise = random_noise/2**23
+
+xx = np.linspace(0, 10, SIZE)
+signals = my_signal(xx, 0.5, 8, 4, 1) + (random_noise-0.5)*2
+
+out = fw.fit_gauss(xx, signals, print_results=False)
+
+if all([fit == expected for fit, expected in zip(out.val,
+	[0.2811854994469001, 8.172019362078377, 3.988140408772186, 1.0245154822192815])]):
+	print('Test fit gauss value PASSED')
+else:
+	print('Test fit gauss value FAILED')
 
 
-
-
-
+if all([fit == expected for fit, expected in zip(out.err,
+	[0.08458826476316875, 0.1764090991808999, 0.02402102813958344, 0.028307724693133765])]):
+	print('Test fit gauss error PASSED')
+else:
+	print('Test fit gauss error FAILED')
