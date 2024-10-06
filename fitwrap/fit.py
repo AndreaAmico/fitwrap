@@ -1,4 +1,10 @@
-from collections import OrderedDict, Sized
+from collections import OrderedDict
+
+try:
+    from collections.abc import Sized
+except:
+    from collections import Sized
+    
 from scipy.stats import t as scipy_stats_t
 
 import inspect
