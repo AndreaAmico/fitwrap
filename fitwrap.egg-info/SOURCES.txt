@@ -1,0 +1,13 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+fitwrap/__init__.py
+fitwrap/fit.py
+fitwrap/fit2d.py
+fitwrap/gauss.py
+fitwrap/sine.py
+fitwrap.egg-info/PKG-INFO
+fitwrap.egg-info/SOURCES.txt
+fitwrap.egg-info/dependency_links.txt
+fitwrap.egg-info/top_level.txt

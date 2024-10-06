@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: fitwrap
+Version: 0.3.0
+Summary: A very simple array numpy array container
+Home-page: https://github.com/AndreaAmico/fitwrap
+Download-URL: https://github.com/AndreaAmico/fitwrap/tarball/v0.3.0
+Author: Andrea Amico
+Author-email: amico.andrea.90@gmail.com
+Keywords: numpy,array,container
+Classifier: Programming Language :: Python
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE.txt
